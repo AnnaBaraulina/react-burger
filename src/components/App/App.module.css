@@ -1,0 +1,18 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 2000px;;
+  background-color: #131316;
+  color: white;
+
+}
+
+.content {
+  max-width: 1240px;
+  width: 100;
+  margin: 0 auto;
+  display: flex;
+  
+}

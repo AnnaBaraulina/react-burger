@@ -1,0 +1,38 @@
+.section {
+    max-width: 600px;
+    width: 100%;
+}
+.item {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  column-gap: 13px;
+  width: 100%;
+}
+.item:first-of-type{
+  margin-top: 0px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.list {
+  list-style-type: none;
+  max-height: 40vh;
+  overflow-y: auto;
+  margin: 0;
+  padding: 0;
+}
+.total {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.price {
+  display: flex;
+  align-items: center;
+}

@@ -23,7 +23,7 @@ import {
                 };
              case GET_INGREDIENTS_ERROR:
                return {
-                ...state,
+                
                 burgerIngredientsListRequest: false,
                 burgerIngredientsListError: true,
                 burgerIngredientsListErrorText: action.errorText,

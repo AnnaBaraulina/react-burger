@@ -35,11 +35,11 @@ export default function OrderCounters({
                 </li>
               );
             })}
-            ;
+            
           </ul>
         </div>
       </div>
-      <div className={style.container__digit}>
+      <div className={style.container_digit}>
         <p className="text text_type_main-medium">Выполнено за все время:</p>
         <p className={`text text_type_digits-large ${style.digit}`}>{total}</p>
       </div>

@@ -9,7 +9,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getSocketUrl } from "../../utils/variables";
 
-export default function UserOrder() {
+export default function UserOrder() { //список всех заказов при переходе на вкладку заказы внутри страницы профиля
   const dispatch = useDispatch();
   const { orders, errorState } = useSelector((store) => store.socketReducer);
 
@@ -18,7 +18,7 @@ export default function UserOrder() {
     return () => {
       dispatch(wsConnectionClose());
     };
-  }, [dispatch]);
+  }, []);
 
   useEffect(() => {
     if (errorState) {
@@ -27,7 +27,7 @@ export default function UserOrder() {
         .then(() => dispatch(wsConnectionStart(getSocketUrl())))
         .catch(() => dispatch(wsConnectionClose()));
     }
-  }, [errorState, dispatch]);
+  }, [errorState]);
 
   return (
     orders && (

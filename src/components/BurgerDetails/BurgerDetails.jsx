@@ -8,10 +8,9 @@ import OrderPageList from "../OrderPageList/OrderPageList";
 export default function BurgerDetails({ titleClassName }) {
   const orders = useSelector((store) => store.socketReducer.orders);
   const { id } = useParams();
-  const order = orders.find((item) => item.id === id);
-  
+  const order = orders.find((item) => item._id === id);
 
-  const { orderIngredienstList, orderPrice, orderStatus, orderDate } =
+  const { orderIngredientsList, orderPrice, orderStatus, orderDate } =
     useOrder(order);
 
   return (
@@ -29,7 +28,7 @@ export default function BurgerDetails({ titleClassName }) {
           className={`text text_type_main-default ${style.color}`}
         >{`${orderStatus}`}</p>
       </div>
-      <OrderPageList ingredients={orderIngredienstList} />
+      <OrderPageList ingredients={orderIngredientsList} />
       <div className={style.container_date}>
         <p className="text text_type_main-default text_color_inactive">
           {orderDate}

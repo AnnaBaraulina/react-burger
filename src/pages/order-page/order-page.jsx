@@ -4,34 +4,38 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getIngredient } from "../../services/actions/burgerIngredientsAction";
 import {
-
   wsConnectionStart,
   wsConnectionClose,
 } from "../../services/actions/socketAction";
 import BurgerDetails from "../../components/BurgerDetails/BurgerDetails";
-import { WS_URL_ALL} from "../../utils/variables";
+import { WS_URL_ALL } from "../../utils/variables";
 import { getSocketUrl } from "../../utils/variables";
 
-export default function OrderPage({ isAuth }) {
+export default function OrderPage({ isAuth }) { // то, что открывается напрямую по роуту, не модальное окно
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getIngredient());
-    isAuth
-      ? dispatch(wsConnectionStart(getSocketUrl()))
-      : dispatch(wsConnectionStart(WS_URL_ALL));
+    if (isAuth) {
+      dispatch(wsConnectionStart(getSocketUrl()));
+    } else {
+      dispatch(wsConnectionStart(WS_URL_ALL));
+    }
     return () => {
       dispatch(wsConnectionClose());
     };
-  }, [dispatch, isAuth]);
+  }, []);
 
   const orders = useSelector((store) => store.socketReducer.orders);
+  const currentOrder = useSelector(
+    (store) => store.currentOrderReducer.currentOrder
+  );
   const { id } = useParams();
-  const order = orders.find((item) => item._id === id);
+  const order = orders.find((item) => item._id === id) || currentOrder;
 
   return (
     order && (
-      <section className={style.maim}>
+      <section className={style.main}>
         <BurgerDetails titleClassName={style.title} />
       </section>
     )

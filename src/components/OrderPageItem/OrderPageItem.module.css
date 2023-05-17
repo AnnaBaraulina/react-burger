@@ -14,13 +14,13 @@
     justify-content: space-between;
   }
   
-  .container__element {
+  .container_item {
     display: flex;
     align-items: center;
     gap: 16px;
   }
   
-  .container__image {
+  .container_image {
     width: 64px;
     height: 64px;
     background: #131316;
@@ -31,7 +31,7 @@
     border: 2px solid rgba(128, 26, 178, 1);
   }
   
-  .container__counter {
+  .container_counter {
     display: flex;
     align-items: center;
     gap: 8px;

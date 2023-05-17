@@ -15,43 +15,39 @@ export const socketMiddleware = (wsActions) => {
         socket = new WebSocket(url);
 
         socket.onopen = (event) => {
-          console.log("Соединение WebSocket открыто");
           dispatch({ type: onOpen, payload: "" });
         };
 
         socket.onerror = (event) => {
-          console.log("Ошибка WebSocket");
           dispatch({ type: onError, payload: "" });
         };
 
         socket.onmessage = (event) => {
           const { data } = event;
           const parsedData = JSON.parse(data);
-
+          console.log(parsedData);
           const { success, ...restParsedData } = parsedData;
           if (
             restParsedData.message === "Invalid or missing token" ||
             restParsedData.message === "jwt expired"
           ) {
-            console.log("Ошибка: токен недействителен");
             dispatch({ type: onError, payload: restParsedData.message });
           } else {
-            console.log("Получены данные от WebSocket");
             dispatch({ type: onMessage, payload: restParsedData });
           }
         };
 
-        socket.onclose = (event) => {
-          console.log("Соединение WebSocket закрыто");
+        socket.onclose = (event) => {          
           if (event.code !== 1000) {
             reconnectTimer = window.setTimeout(() => {
               dispatch({ type: wsInit, payload: url });
             }, 10000);
           }
 
-          dispatch({ type: onClosed, payload: { code: event.code, reason: event.reason } });
+          dispatch({ type: onClosed, payload: event.code });
         };
       } else if (type === onClose && socket) {
+        console.log('close normal')
         socket.close(1000, "CLOSE_NORMAL");
         socket = null;
         clearTimeout(reconnectTimer);

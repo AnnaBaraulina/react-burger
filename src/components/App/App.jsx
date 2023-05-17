@@ -25,7 +25,7 @@ function App() {
   useEffect(() => {
     dispatch(getIngredient());
     dispatch(checkUserAccess());
-  }, [dispatch]);
+  }, []);
 
   const { isAuth, resetEmailSent } = useSelector((store) => ({
     isAuth: store.userReducer.isAuth,
@@ -102,6 +102,7 @@ function App() {
         <Routes>
           <Route
             path="/ingredients/:id"
+            exact
             element={
               <Modal route>
                 <IngredientDetails />

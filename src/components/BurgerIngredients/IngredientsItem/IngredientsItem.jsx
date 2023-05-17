@@ -13,6 +13,7 @@ import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
 function IngredientsItem({ ingredient }) {
+  //ингредиент из конструктора
   //card
   const location = useLocation;
   const dispatch = useDispatch();
@@ -60,7 +61,7 @@ function IngredientsItem({ ingredient }) {
       <Link
         to={`/ingredients/${ingredient._id}`}
         className={`text_color_primary ${styleIngredients.link}`}
-        state={{ locationIngredient: location }}
+        state={{ locationIngredient: location }} // background: location
       >
         <img
           ref={dragPreviewRef}

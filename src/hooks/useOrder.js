@@ -14,10 +14,15 @@ export default function useOrder(order) {
         }
       });
     });
+
     return list;
   };
 
   const getOrderStatus = () => {
+    if (!order || !order.status) {
+      return "Статус неизвестен";
+    }
+
     if (order.status === "done") {
       return "Выполнен";
     } else {

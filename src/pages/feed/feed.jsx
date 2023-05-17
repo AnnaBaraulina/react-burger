@@ -1,7 +1,7 @@
 import OrderFeedList from "../../components/OrderFeedList/OrderFeedList";
 import {
   wsConnectionStart,
-  wsConnectionClose,
+ 
 } from "../../services/actions/socketAction";
 import styles from "./feed.module.css";
 import { useDispatch, useSelector } from "react-redux";
@@ -43,7 +43,7 @@ export default function FeedPage() {
   useEffect(() => {
     dispatch(wsConnectionStart(WS_URL_ALL));
     return () => {
-      dispatch(wsConnectionClose());
+      
     };
   }, [dispatch]);
 

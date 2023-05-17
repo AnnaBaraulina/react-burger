@@ -5,27 +5,27 @@
     gap: 60px;
   }
   
-  .container__orders {
+  .container_orders {
     display: flex;
     justify-content: space-between;
     gap: 36px;
   }
   
-  .container__done {
+  .container_done {
     width: 272px;
     display: flex;
     flex-direction: column;
     gap: 24px;
   }
   
-  .container__inwork {
+  .container_inwork {
     width: 272px;
     display: flex;
     flex-direction: column;
     gap: 24px;
   }
   
-  .container__digit {
+  .container_digit {
     display: flex;
     flex-direction: column;
   }

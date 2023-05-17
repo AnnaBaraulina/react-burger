@@ -8,7 +8,7 @@ import OrderIngredientsList from "../OrderIngredientsList/OrderIngredientsList";
 import useOrder from "../../hooks/useOrder";
 import cn from "classnames";
 
-export default function OrderFeedItem({ isFeedList, order }) {
+export default function OrderFeedItem({ isFeedList, order }) { //то, что должно открыться по нажатию на один из заказов в списке заказов во вкладке "заказы" в профиле
   const { orderIngredientsList, orderPrice, orderStatus } = useOrder(order);
   const location = useLocation();
 

@@ -20,29 +20,19 @@ const getIngredients = async () => {
   return fetch(`${INGREDIENTS_URL}`).then(checkResponse);
 };
 
-/*const apiOrder = async (arrayId) => { //переписать с учетом токена
-    return fetch(`${ORDER_URL}`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            'ingredients': arrayId,
-        }),
-    }).then(checkResponse);
-}*/
-export const fetchWithRefresh = async (url, options) => {
+
+{/*export const fetchWithRefresh = async (url, options) => {
   try {
     const res = await fetch(url, options);
     return await checkResponse(res);
   } catch (err) {
-    if (err.message === 'jwt expired') {
+    if (err.message === "jwt expired") {
       const refreshData = await refreshTokenRequest();
       if (!refreshData.success) {
         return Promise.reject(refreshData);
       }
-      setCookie('refreshToken', refreshData.refreshToken);
-      setCookie('accessCookie', refreshData.accessToken);
+      setCookie("refreshToken", refreshData.refreshToken);
+      setCookie("accessCookie", refreshData.accessToken);
       options.headers.authorization = refreshData.accessToken;
       const res = await fetch(url, options);
       return await checkResponse(res);
@@ -50,10 +40,10 @@ export const fetchWithRefresh = async (url, options) => {
       return Promise.reject(err);
     }
   }
-}
+};*/}
 
 const apiOrder = async (arrayId, accessToken) => {
-  return fetchWithRefresh(ORDER_URL, {
+  return fetch(ORDER_URL, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -105,8 +95,6 @@ const checkUserAccessRequest = async (accessToken) => {
     },
   }).then(checkResponse);
 };
-
-
 
 const refreshTokenRequest = async (refreshToken) => {
   return fetch(TOKEN_URL, {

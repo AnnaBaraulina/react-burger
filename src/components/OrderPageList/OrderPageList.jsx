@@ -20,6 +20,7 @@ export default function OrderPageList({ ingredients }) {
       <p className="text text_type_main-medium mb-6">Состав:</p>
       <ul className={style.list}>
         {filteredList.map((item) => {
+          console.log(filteredList)
           return (
             <OrderPageItem
               key={uuidv4()}

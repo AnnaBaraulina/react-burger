@@ -14,8 +14,8 @@ import { useLocation } from "react-router-dom";
 
 function IngredientsItem({ ingredient }) {
   //ингредиент из конструктора
-  //card
-  const location = useLocation;
+ 
+  const location = useLocation();
   const dispatch = useDispatch();
   const constructorIngredients = useSelector(
     (store) => store.burgerConstructorReducer
@@ -24,9 +24,9 @@ function IngredientsItem({ ingredient }) {
     (store) => store.burgerIngredientsReducer
   );
 
-  function openModal() {
+ {/* function openModal() {
     dispatch({ type: SET_CURRENT_INGREDIENT, payload: ingredient });
-  }
+  }*/}
 
   const [, dragRef, dragPreviewRef] = useDrag({
     type: "ingredients",
@@ -53,7 +53,7 @@ function IngredientsItem({ ingredient }) {
     <li
       ref={dragRef}
       className={`${styleIngredients.item} mb-8`}
-      onClick={openModal}
+      /*onClick={openModal}*/
     >
       {getIngredientCounter(ingredient._id) !== 0 && (
         <Counter count={getIngredientCounter(ingredient._id)} size="default" />

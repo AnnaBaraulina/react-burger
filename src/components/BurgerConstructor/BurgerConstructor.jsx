@@ -1,9 +1,7 @@
-import { ConstructorElement, CurrencyIcon, DragIcon, Button } from '@ya.praktikum/react-developer-burger-ui-components';
-import {  useMemo, useEffect } from 'react';
+import { ConstructorElement} from '@ya.praktikum/react-developer-burger-ui-components';
+import {  useMemo } from 'react';
 import { useDrop } from 'react-dnd';
 import stylesConstructor from './BurgerConstractor.module.css';
-import itemPropTypes from '../../utils/prop-types';
-import PropTypes from 'prop-types';
 import ConstructorFillingList from './ConstructorFillingList';
 import { useSelector, useDispatch } from 'react-redux';
 import ConstructorOrder from '../ConstracturOrder/ConstructorOrder';

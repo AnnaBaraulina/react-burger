@@ -1,18 +1,17 @@
-
 import style from './ingredients-page.module.css';
 import IngredientDetails from "../../components/IngredientDetails/IngredientDetails";
-import HomePage from '../main/main';
 import { useSelector } from 'react-redux';
-import { useParams, useLocation, Navigate } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
+import HomePage from '../main/main';
 
-export default function IngredientsPage() {
+export default function IngredientsPage() { //элемент бургера из конструктора, который открывается по прямому маршруту
     const ingredients = useSelector((store) => store.burgerIngredientsReducer.burgerIngredientsList);
     const { id } =  useParams();
     const currentIngredient = ingredients.find((item) => item._id === id);
     const location = useLocation();
     
     return location.state?.from === "/" ? (
-        <Navigate to='/' />
+        <HomePage />
       ) : (
         currentIngredient && (
           <>

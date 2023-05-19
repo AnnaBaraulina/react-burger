@@ -5,7 +5,9 @@ import style from './profile.module.css';
 import { Input, Button } from "@ya.praktikum/react-developer-burger-ui-components";
 import { getCookie } from "../../utils/cookie";
 import { logoutUser, changeUserData } from "../../services/actions/userAction";
-import AppHeader from "../../components/AppHeader/AppHeader";
+import { RESET_CURRENT_ORDER } from "../../services/actions/currentOrderAction";
+import Modal from "../../components/Modal/Modal";
+import BurgerDetails from "../../components/BurgerDetails/BurgerDetails";
 
 export default function ProfilePage() {
     const dispatch = useDispatch();
@@ -16,6 +18,8 @@ export default function ProfilePage() {
     const [input, setInput] = useState({name: false, email: false});
     const refreshToken = getCookie('refreshToken');
     const activeStyle = { color: "#f2f2f3",}
+
+    const currentOrder = useSelector((store) => store.currentOrderReducer.currentOrder)
 
     function profileFormSubmit(e) {
       e.preventDefault();
@@ -34,9 +38,14 @@ export default function ProfilePage() {
         return JSON.stringify(user) === JSON.stringify(userData);
     }
 
+    function closeModal(e) {
+      e.stopPropagation();
+      dispatch({ type: RESET_CURRENT_ORDER })
+    }
+
     return (
         <>
-        <AppHeader/>
+        
         <section className={style.section}>
             <div className={style.container}>
             <div className={style.column__nav}>
@@ -50,7 +59,7 @@ export default function ProfilePage() {
                 Профиль
                 </NavLink>
                 <NavLink
-                 to='order-page'
+                 to='orders'
                  className={`text text_type_main-medium text_color_inactive ${style.link}`}
                  style={({ isActive }) => (isActive ? activeStyle : undefined)}
                  state={{ order: true }}
@@ -59,7 +68,7 @@ export default function ProfilePage() {
                 История заказов
                </NavLink>
                <NavLink
-                 onClick={() => dispatch(logoutUser(() => navigate('/login')))}  
+                 onClick={() => dispatch(logoutUser(refreshToken,() => navigate('/login')))}  
                  className={`text text_type_main-medium text_color_inactive ${style.link}`}
                >
                Выход
@@ -121,6 +130,11 @@ export default function ProfilePage() {
 
             </div>
         </section>
+        {currentOrder && (
+        <Modal onCloseModal={closeModal}>
+          <BurgerDetails order={currentOrder}/>
+        </Modal>
+      )}
         </>
     )
 };

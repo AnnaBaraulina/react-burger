@@ -1,6 +1,5 @@
 import { Button, EmailInput, PasswordInput } from '@ya.praktikum/react-developer-burger-ui-components';
 import React from 'react';
-import AppHeader from '../../components/AppHeader/AppHeader';
 import styles from './login.module.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { setLoginFormValue, loginUser } from '../../services/actions/userAction';
@@ -27,7 +26,7 @@ export default function LoginPage() {
   }
     return (
       <>
-      <AppHeader/>
+     
       <section className={styles.section}>
         <div className={styles.container}>
             <p className='text text_type_main-medium mb-6'>Вход</p>

@@ -125,9 +125,9 @@ export function loginUser(userDate, callback) {
   };
 }
 
-export function logoutUser(callback) {
+export function logoutUser(refreshToken, callback) {
   return function (dispatch) {
-    const refreshToken = getCookie('refreshToken')
+    
     logoutUserRequest(refreshToken).then(() => {
       dispatch({ type: USER_ACCESS_DENIED });
       deleteCookie("accessToken");

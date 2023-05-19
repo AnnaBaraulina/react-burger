@@ -71,13 +71,9 @@ export default function userReducer(state = initialState, action) {
         case USER_REGISTER_FORM_SUBMIT: {
             return {
                 ...state,
-                registerForm: {
-                    ...state.registerForm,
-                    name: '',
-                    email: '',
-                    password: '',
+                registerForm: true,
                 }
-            }
+            
         }
         case USER_REGISTER_FORM_SUBMIT_SUCCESS: {
             return {

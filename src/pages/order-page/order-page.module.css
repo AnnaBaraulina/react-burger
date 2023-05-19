@@ -1,0 +1,9 @@
+.main {
+    margin-top: 122px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .title {
+    text-align: center;
+  }

@@ -28,6 +28,7 @@ function AppHeader() {
     return (
         <header className={stylesHeader.header}>
             <nav className={`${stylesHeader.nav} pt-4 pb-4`}>
+             <div className={stylesHeader.container}>   
              <NavLink 
                to='/'
                style={({ isActive }) => (isActive ? activeStyle : undefined)}
@@ -36,20 +37,21 @@ function AppHeader() {
                Конструктор
                </NavLink>
                <NavLink
-               to='/order_list'
+               to='/feed'
                style={({ isActive }) => (isActive ? activeStyle : undefined)}
                className={`text text_type_main-default ${stylesHeader.button}`}
                >
                <ListIcon type={toggleStyleIcon('/order_list')}/>
                Лента заказов
                </NavLink>
+               </div>
                <div className={stylesHeader.logo}>
                 <Logo/>
                </div>
                <NavLink
                to='/profile'
                style={({ isActive }) => (isActive ? activeStyle : undefined)}
-               className={`text text_type_main-default ${stylesHeader.button} ${stylesHeader.profile_button}`}>
+               className={`text text_type_main-default ${stylesHeader.button} ${stylesHeader.profile_button} `}>
                <ProfileIcon type={toggleStyleIcon('/profile')}/>
                Личный кабинет
                </NavLink>

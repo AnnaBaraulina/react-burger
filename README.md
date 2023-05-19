@@ -1,46 +1,23 @@
-# Getting Started with Create React App
+__Cosmic Burger Website__
+This project is a cosmic burger joint's website where users can customize and build their own burgers using a wide range of provided ingredients. The burger constructor calculates the total cost of the order and displays a pop-up message with the order number and details. Additionally, the website features a personal account section that is accessible only to authorized users. Within the account section, users can edit their personal information and view the history of all their previous orders.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The website is built using React and is connected to an API and WebSocket. The authentication process is implemented using tokens and cookie installation.
 
-## Available Scripts
+__Features__
+Burger Customization: Users can select from a variety of ingredients to build their perfect burger.
+Order Calculation: The website's burger constructor calculates the total cost of the customized order.
+Order Confirmation: Users receive a pop-up message with their unique order number and details after placing an order.
+Personal Account: Authenticated users have access to a personal account section.
+Personal Information Editing: Users can modify their personal information within the account section.
+Order History: The account section displays a comprehensive history of all previous orders.
 
-In the project directory, you can run:
+__Technologies Used__
+React: JavaScript library for building user interfaces.
+API Integration: Connects the website to an API to retrieve and store data.
+WebSocket: Enables real-time communication between the website and server.
+Token-Based Authentication: Secures the authentication process using tokens.
+Cookies: Stores user authentication data for seamless access to the personal account.
 
-### `npm start`
+__We hope you enjoy customizing your cosmic burgers on our website! Feel free to explore the different ingredients and create the burger of your dreams. If you have any questions or feedback, please don't hesitate to contact us. Happy burger building!__
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+__Note:__ This description is for illustrative purposes only and may not reflect the actual implementation details.

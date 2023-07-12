@@ -5,7 +5,7 @@ import style from './profile.module.css';
 import { Input, Button } from "@ya.praktikum/react-developer-burger-ui-components";
 import { getCookie } from "../../utils/cookie";
 import { logoutUser, changeUserData } from "../../services/actions/userAction";
-import { RESET_CURRENT_ORDER } from "../../services/actions/currentOrderAction";
+import { RESET_ORDER } from "../../services/constants";
 import Modal from "../../components/Modal/Modal";
 import BurgerDetails from "../../components/BurgerDetails/BurgerDetails";
 
@@ -40,7 +40,7 @@ export default function ProfilePage() {
 
     function closeModal(e) {
       e.stopPropagation();
-      dispatch({ type: RESET_CURRENT_ORDER })
+      dispatch({ type: RESET_ORDER })
     }
 
     return (

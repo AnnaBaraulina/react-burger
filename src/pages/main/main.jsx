@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Main from '../../components/Main/Main';
 import Modal from '../../components/Modal/Modal';
-import { RESET_CURRENT_INGREDIENT } from '../../services/actions/currentIngredientAction';
+import { RESET_CURRENT_INGREDIENT } from '../../services/constants';
 import IngredientDetails from '../../components/IngredientDetails/IngredientDetails';
 
 export default function HomePage() {
